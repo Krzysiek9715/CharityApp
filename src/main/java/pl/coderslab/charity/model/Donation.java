@@ -2,6 +2,7 @@ package pl.coderslab.charity.model;
 
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -9,12 +10,14 @@ import java.util.List;
 
 @Entity
 @Table(name = "donation")
+@Component
 public class Donation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column
     private Integer quantity;
 
     @ManyToMany
@@ -23,17 +26,25 @@ public class Donation {
     @ManyToOne
     private Institution institution;
 
+    @Column
     private String street;
+    @Column
     private String city;
+    @Column
     private String zipCode;
+    @Column
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column
+//    @DateTimeFormat(pattern = "hh:mm") - do SPRAWDZENIA
     private LocalDate pickUpTime;
 
+    @Column
     private String pickUpComment;
 
+    public Donation() {
+    }
 
     public Long getId() {
         return id;
