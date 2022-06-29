@@ -10,7 +10,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "donation")
-@Component
 public class Donation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

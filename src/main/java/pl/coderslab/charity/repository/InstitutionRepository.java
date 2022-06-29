@@ -11,4 +11,6 @@ public interface InstitutionRepository extends JpaRepository<Institution,Long> {
     @Query("select i.name from Institution i")
     List<String> names();
 
+    Institution findInstitutionByName(String name);
+
 }
