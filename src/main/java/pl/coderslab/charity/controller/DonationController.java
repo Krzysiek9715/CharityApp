@@ -31,7 +31,7 @@ public class DonationController {
     @GetMapping("/form")
     public String formShow(Model model){
         model.addAttribute("categories",sessionDonation.getCategories());
-        model.addAttribute("allCategories",categoryRespository.names());
+        model.addAttribute("allCategories",categoryRespository.findAll());
         return "form/form1";
     }
     @PostMapping("/form1")

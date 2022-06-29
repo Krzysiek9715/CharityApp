@@ -17,14 +17,6 @@
 <body>
 
 
-<%--<form action="form3" method="post">--%>
-<%--    <c:forEach items="${allInstitutions}" var="institution">--%>
-<%--        <input type="checkbox"> ${institution.name}--%>
-<%--    </c:forEach>--%>
-<%--    <input type="submit" value="next">--%>
-<%--</form>--%>
-
-
 <form action="form3" method="post">
     <select name="institution">
         <c:forEach items="${allInstitutions}" var="institution">

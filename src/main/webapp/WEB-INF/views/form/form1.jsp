@@ -16,21 +16,14 @@
     <title>Title</title>
 </head>
 <body>
-<form action="form1" method="post">
-    <select name="institution">
-        <c:forEach items="${allInstitutions}" var="institution">
-            <option name="institution" value="${institution}">${institution}</option>
-        </c:forEach>
-    </select>
-    <input type="submit" value="next">
-</form>
 
-<%--<form action="form1" method="post">--%>
-<%--    <c:forEach items="${allCategories}" var="category">--%>
-<%--        <input type="checkbox" name="categories"> ${category}--%>
-<%--    </c:forEach>--%>
-<%--    <input type="submit" value="next">--%>
-<%--    </form>--%>
+
+<form action="form1" method="post">
+    <c:forEach items="${allCategories}" var="category">
+        <input type="checkbox" name="categories"> ${category}
+    </c:forEach>
+    <input type="submit" value="next">
+    </form>
 
 </body>
 </html>
