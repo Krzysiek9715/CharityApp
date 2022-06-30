@@ -18,9 +18,9 @@
 <body>
 
 
-<form action="form1" method="post">
+<form action="/form1" method="post">
     <c:forEach items="${allCategories}" var="category">
-        <input type="checkbox" name="categories"> ${category}
+        <input type="checkbox" name="categories" value="${category.id}"> ${category.name}
     </c:forEach>
     <input type="submit" value="next">
     </form>

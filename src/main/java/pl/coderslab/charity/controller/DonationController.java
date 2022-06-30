@@ -15,6 +15,9 @@ import pl.coderslab.charity.repository.CategoryRespository;
 import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
@@ -46,11 +49,50 @@ public class DonationController {
         model.addAttribute("allInstitutions",institutionRepository.findAll());
         return "form/form3";
     }
+
+
     @PostMapping("/form3")
-    public String postForm2(Model model, @RequestParam("institution") Institution institution){
+    public String postForm2(@RequestParam("institution") Institution institution){
         sessionDonation.setInstitution(institution);
-        model.addAttribute("session",sessionDonation);
+        return "form/form4";
+    }
+
+    @PostMapping("/form4")
+    public String postForm3(Model model,
+                            @RequestParam("street") String street,
+                            @RequestParam("city") String city,
+                            @RequestParam("zipCode") String zipCode,
+                            @RequestParam("pickUpDate") String pickUpDate,
+                            @RequestParam("pickUpTime") String pickUpTime,
+                            @RequestParam("pickUpComment")String pickUpComment){
+        sessionDonation.setStreet(street);
+        sessionDonation.setCity(city);
+        sessionDonation.setZipCode(zipCode);
+        DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        sessionDonation.setPickUpDate(LocalDate.parse(pickUpDate,formatterDate));
+        DateTimeFormatter formatterTime = DateTimeFormatter.ofPattern("H:mm");
+        sessionDonation.setPickUpTime(LocalTime.parse(pickUpTime, formatterTime));
+        sessionDonation.setPickUpComment(pickUpComment);
+        model.addAttribute("sessionData",sessionDonation);
         return "form/formSum";
+    }
+
+
+    @PostMapping("/formSum")
+    public String postForm2(Model model){
+        model.addAttribute("sessionData",sessionDonation);
+        Donation newDonation = new Donation();
+        newDonation.setCategories(sessionDonation.getCategories());
+        newDonation.setInstitution(sessionDonation.getInstitution());
+        newDonation.setQuantity(sessionDonation.getQuantity());
+        newDonation.setCity(sessionDonation.getCity());
+        newDonation.setStreet(sessionDonation.getStreet());
+        newDonation.setZipCode(sessionDonation.getZipCode());
+        newDonation.setPickUpTime(sessionDonation.getPickUpTime());
+        newDonation.setPickUpDate(sessionDonation.getPickUpDate());
+        newDonation.setPickUpComment(sessionDonation.getPickUpComment());
+        donationRepository.save(newDonation);
+        return "redirect:/";
     }
 
 

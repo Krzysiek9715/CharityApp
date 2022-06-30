@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<form action="form2" method="post">
+<form action="/form2" method="post">
     <input type="number" name="quantity"> Ilość worków
     <input type="submit" value="next">
 </form>

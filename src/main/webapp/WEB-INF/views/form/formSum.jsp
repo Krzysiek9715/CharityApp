@@ -16,14 +16,38 @@
     <title>Title</title>
 </head>
 <body>
+<form action="/formSum" method="post">
 Instytucja:
-<c:out value="${sessionInstitution}"/>
+<c:out value="${sessionData.institution.name}"/></br>
+<c:out value="${sessionData.institution.description}"/></br>
+</br>
 Kategoria
-<c:forEach items="${session.categories}" var="category">
-<c:out value="${category.name}"/>
+<c:forEach items="${sessionData.categories}" var="category">
+<c:out value="${category.name}"/></br>
 </c:forEach>
+</br>
 Liczba worków:
-<c:out value="${session.quantity}"/>
-
+<c:out value="${sessionData.quantity}"/>
+</br>
+Ulica:
+<c:out value="${sessionData.street}"/>
+</br>
+Miasto:
+<c:out value="${sessionData.city}"/>
+</br>
+kod pocztowy:
+<c:out value="${sessionData.zipCode}"/>
+</br>
+data odbioru:
+<c:out value="${sessionData.pickUpDate}"/>
+</br>
+godzina odbioru:
+<c:out value="${sessionData.pickUpTime}"/>
+</br>
+komentarz:
+<c:out value="${sessionData.pickUpComment}"/>
+</br>
+<input type="submit" value="send">
+</form>
 </body>
 </html>

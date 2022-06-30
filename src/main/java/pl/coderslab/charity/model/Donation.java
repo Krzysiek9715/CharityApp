@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Entity
@@ -36,8 +37,8 @@ public class Donation {
     private LocalDate pickUpDate;
 
     @Column
-//    @DateTimeFormat(pattern = "hh:mm") - do SPRAWDZENIA
-    private LocalDate pickUpTime;
+    @DateTimeFormat(pattern = "H:mm")
+    private LocalTime pickUpTime;
 
     @Column
     private String pickUpComment;
@@ -109,11 +110,11 @@ public class Donation {
         this.pickUpDate = pickUpDate;
     }
 
-    public LocalDate getPickUpTime() {
+    public LocalTime getPickUpTime() {
         return pickUpTime;
     }
 
-    public void setPickUpTime(LocalDate pickUpTime) {
+    public void setPickUpTime(LocalTime pickUpTime) {
         this.pickUpTime = pickUpTime;
     }
 
