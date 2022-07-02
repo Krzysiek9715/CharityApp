@@ -8,28 +8,48 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-<form action="/form3" method="post">
-    <c:forEach items="${allInstitutions}" var="institution">
-        <input type="checkbox" name="institution" value="${institution.id}"> ${institution.name}</br>
-        ${institution.description} </br>
-    </c:forEach>
-    <input type="submit" value="next">
-</form>
+<%@include file="header.jsp"%>
 
-<%--<form action="/form3" method="post">--%>
-<%--    <select name="institution">--%>
-<%--        <c:forEach items="${allInstitutions}" var="institution">--%>
-<%--            <option name="institution" value="${institution.id}">${institution.name}</option>--%>
-<%--        </c:forEach>--%>
-<%--    </select>--%>
-<%--    <input type="submit" value="next">--%>
-<%--</form>--%>
-</body>
-</html>
+<section class="form--steps">
+    <div class="form--steps-instructions">
+        <div class="form--steps-container">
+            <h3>Ważne!</h3><br/>
+            <p>Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy wiedzieć komu najlepiej je przekazać
+            </p>
+        </div>
+    </div>
+
+    <div class="form--steps-container">
+        <div class="form--steps-counter"> Krok 3/4</div>
+
+
+        <form action="/form3" method="post">
+            <div data-step="3" class="active">
+            <h3>Wybierz organizacje, której chcesz pomóc:</h3></br>
+
+                <div class="form-group form-group--checkbox">
+                        <c:forEach items="${allInstitutions}" var="institution">
+
+                                <label>
+                            <input type="radio" name="institution" value="${institution.id}">
+                            <span class="checkbox radio"></span>
+                            <span class="description">
+                    <div class="title"> ${institution.name}</div>
+                    <div class="description">${institution.description}</div>
+                </span>
+                                </label>
+                        </c:forEach>
+                </div>
+
+                <div class="form-group form-group--buttons">
+                    <a href="/form1" class="btn">Wstecz</a>
+                    <input type="submit" class="btn" value="Dalej"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<%@include file="footer.jsp"%>
