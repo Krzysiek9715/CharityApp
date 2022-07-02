@@ -1663,7 +1663,7 @@ footer .bottom-line--icons a img {
 .form--steps-instructions p {
   margin: 0;
   font-size: 1.8rem;
-  display: none;
+  /*display: none;*/
 }
 
 /* line 69, scss/style.scss */

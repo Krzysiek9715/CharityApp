@@ -92,7 +92,7 @@ public class DonationController {
         newDonation.setPickUpDate(sessionDonation.getPickUpDate());
         newDonation.setPickUpComment(sessionDonation.getPickUpComment());
         donationRepository.save(newDonation);
-        return "redirect:/";
+        return "form/form6";
     }
 
 

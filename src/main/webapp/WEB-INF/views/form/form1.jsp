@@ -8,22 +8,46 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@include file="header.jsp" %>
 
 
-<form action="/form1" method="post">
-    <c:forEach items="${allCategories}" var="category">
-        <input type="checkbox" name="categories" value="${category.id}"> ${category.name}
-    </c:forEach>
-    <input type="submit" value="next">
-    </form>
+<section class="form--steps">
+    <div class="form--steps-instructions">
+        <div class="form--steps-container">
+            <h3>Ważne!</h3><br/>
+            <p>Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy wiedzieć komu najlepiej je przekazać
+            </p>
+        </div>
+    </div>
 
-</body>
-</html>
+    <div class="form--steps-container">
+        <div class="form--steps-counter"> Krok 1/4</div>
+
+        <form action="/form1" method="post">
+            <div data-step="1" class="active">
+                <h3>Zaznacz co chcesz oddać:</h3></br>
+
+
+                <div class="form-group form-group--checkbox">
+                    <c:forEach items="${allCategories}" var="category">
+                        <label>
+                            <input type="checkbox" name="categories" value="${category.id}"/>
+                            <span class="checkbox"></span>
+                            <span class="description">${category.name}</span>
+                        </label>
+                    </c:forEach>
+                </div>
+                <div class="form-group--buttons">
+                    <input type="submit" class="btn" value="Dalej">
+                </div>
+            </div>
+
+        </form>
+    </div>
+    </div>
+</section>
+
+<%@include file="footer.jsp" %>
