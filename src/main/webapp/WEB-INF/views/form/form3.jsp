@@ -10,7 +10,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 
 <section class="form--steps">
     <div class="form--steps-instructions">
@@ -27,20 +27,21 @@
 
         <form action="/form3" method="post">
             <div data-step="3" class="active">
-            <h3>Wybierz organizacje, której chcesz pomóc:</h3></br>
+                <h3>Wybierz organizacje, której chcesz pomóc:</h3></br>
 
                 <div class="form-group form-group--checkbox">
-                        <c:forEach items="${allInstitutions}" var="institution">
+                    <c:forEach items="${allInstitutions}" var="institution">
 
-                                <label>
+                        <label>
                             <input type="radio" name="institution" value="${institution.id}">
                             <span class="checkbox radio"></span>
-                            <span class="description">
+                            <span class="description title">
                     <div class="title"> ${institution.name}</div>
                     <div class="description">${institution.description}</div>
                 </span>
-                                </label>
-                        </c:forEach>
+                        </label>
+
+                    </c:forEach>
                 </div>
 
                 <div class="form-group form-group--buttons">
@@ -52,4 +53,4 @@
     </div>
 </section>
 
-<%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>

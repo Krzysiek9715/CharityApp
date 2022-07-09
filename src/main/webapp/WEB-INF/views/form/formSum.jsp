@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="form-group form-group--buttons">
-                <a href="/form2" class="btn">Wstecz</a>
+                <a href="/form3" class="btn">Wstecz</a>
                 <input type="submit" class="btn" value="Potwierdzam"/>
             </div>
         </div>
