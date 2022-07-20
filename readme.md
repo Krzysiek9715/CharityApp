@@ -1,10 +1,12 @@
+# Portfolio Lab Charity 
 
-Przed przystąpieniem do pracy  przeczytaj poniższe wskazówki.
-## Jak zacząć?
+Charity app wchich simulate donating gifts for charity organization. 
 
-1. Zaimportuj projekt jako projekt `Maven`, wg poniższych wskazówek:
+#### How to run
+Import project as project `Maven`:
 
-	* W `IntelliJ` wybieramy: `File –> New –> Project from Existing Sources...`
-	* Wskazujemy lokalizację katalogu ze sklonowanym projektem i zatwierdzamy.
-	* Następnie w nowym oknie wybieramy: `Import project from external model` i wskazujemy `Maven`
-	* Wybieramy kolejno opcje: `Next –> Next –> Next –> Finish`
+    * In `IntelliJ` choose: `File –> New –> Project from Existing Sources...`
+    * Choose localization with project and confirm.
+    * Next in new window choose: `Import project from external model` and choose `Maven`
+    * Choose next options: `Next –> Next –> Next –> Finish`
+
